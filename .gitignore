@@ -1,0 +1,9 @@
+cmake-build-debug
+cmake-build-release
+.idea
+.vs
+.DS_Store
+.cxx
+
+client/fish_shooter_cpp/proj.android/app/src/org/cocos2dx/lib/SharedLoader.java
+client/fish_shooter_cpp/run.bat

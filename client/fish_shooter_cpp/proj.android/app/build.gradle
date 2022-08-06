@@ -1,11 +1,8 @@
-import org.gradle.internal.os.OperatingSystem
-import java.nio.file.Paths
-import java.nio.file.Files
-
 apply plugin: 'com.android.application'
 apply from: project(':libcocos2dx').projectDir.toString() + "/axistools.gradle"
 
 android {
+    buildToolsVersion "33.0.0"
     compileSdkVersion PROP_COMPILE_SDK_VERSION.toInteger()
 
     // setup ndk
