@@ -4,6 +4,14 @@ cmake-build-release
 .vs
 .DS_Store
 .cxx
+.gradle
+.externalNativeBuild
+build
+release
+captures
+
+local.properties
 
 client/fish_shooter_cpp/proj.android/app/src/org/cocos2dx/lib/SharedLoader.java
 client/fish_shooter_cpp/run.bat
+

@@ -27,6 +27,24 @@
 
 USING_NS_AX;
 
+#include <boost/asio.hpp>
+#include <boost/asio/experimental/awaitable_operators.hpp>
+#include <boost/asio/experimental/as_tuple.hpp>
+
+namespace asio = boost::asio;
+using namespace std::literals;
+using namespace std::literals::chrono_literals;
+using namespace asio::experimental::awaitable_operators;
+constexpr auto use_nothrow_awaitable = asio::experimental::as_tuple(asio::use_awaitable);
+using asio::co_spawn;
+using asio::awaitable;
+using asio::detached;
+
+#include <iostream>
+#include <charconv>
+
+#include <yy_buffer.h>
+
 // Print useful error message instead of segfaulting when files are not there.
 static void problemLoading(const char* filename)
 {
@@ -39,6 +57,17 @@ static void problemLoading(const char* filename)
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
+    asio::io_context ioc;
+    co_spawn(ioc, []()->awaitable<void> {
+        co_return;
+    }, detached);
+
+    yy::Data d;
+    d.WriteFixed((uint8_t)12);
+    auto g = yy::MakeSimpleScopeGuard([&]{
+        axis::log("%d", (int)d.len);
+    });
+
     //////////////////////////////
     // 1. super init first
     if (!Scene::init())

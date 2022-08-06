@@ -5,15 +5,13 @@ android {
     buildToolsVersion "33.0.0"
     compileSdkVersion PROP_COMPILE_SDK_VERSION.toInteger()
 
-    // setup ndk
-    def ndkInfo = axistools.findNDK(project)
-    ndkVersion = ndkInfo[0]
-    if(ndkInfo[1]) {
-        ndkPath = ndkInfo[1]
+    // Setup native build tools: ndk & cmake
+    def nbtInfo = axistools.findNativeBuildTools(project)
+    ndkVersion = nbtInfo[0]
+    if(nbtInfo[1]) {
+        ndkPath = nbtInfo[1]
     }
-
-    // setup cmake
-    def cmakeVer = axistools.findCMake(project)
+    def cmakeVer = nbtInfo[2]
 
     defaultConfig {
         applicationId "game.fish_shooter.cpp"
@@ -25,7 +23,8 @@ android {
         externalNativeBuild {
             cmake {
                 arguments "-DCMAKE_FIND_ROOT_PATH=", "-DANDROID_STL=c++_shared", "-DANDROID_TOOLCHAIN=clang", "-DANDROID_ARM_NEON=TRUE"
-                cppFlags "-frtti -fexceptions -fsigned-char"
+                cppFlags "-frtti -fexceptions -fsigned-char -fvisibility=hidden"
+                cFlags "-fvisibility=hidden"
             }
         }
 

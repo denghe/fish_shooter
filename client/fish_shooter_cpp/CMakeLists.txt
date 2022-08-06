@@ -90,8 +90,9 @@ list(APPEND GAME_HEADER
 ###############################################################################################
 
 set(CMAKE_CXX_STANDARD 20)
-include_directories(${AXIS_ROOT_PATH}/../boost/boost)
+include_directories(${AXIS_ROOT_PATH}/../boost)
 include_directories(${AXIS_ROOT_PATH}/../yylib/src)
+link_libraries(-Wl,--gc-sections)
 
 ###############################################################################################
 ###############################################################################################
