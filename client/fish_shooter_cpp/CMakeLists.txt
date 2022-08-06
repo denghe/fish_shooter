@@ -23,7 +23,7 @@
 # THE SOFTWARE.
 # ****************************************************************************/
 
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.20)
 
 set(APP_NAME fish_shooter_cpp)
 
@@ -89,6 +89,7 @@ list(APPEND GAME_HEADER
 ###############################################################################################
 ###############################################################################################
 
+set(CMAKE_CXX_STANDARD 20)
 include_directories(${AXIS_ROOT_PATH}/../boost/boost)
 include_directories(${AXIS_ROOT_PATH}/../yylib/src)
 
