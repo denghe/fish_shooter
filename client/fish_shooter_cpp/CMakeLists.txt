@@ -89,8 +89,8 @@ list(APPEND GAME_HEADER
 ###############################################################################################
 ###############################################################################################
 
-target_include_directories(${APP_NAME} PRIVATE ${AXIS_ROOT_PATH}/../boost/boost)
-target_include_directories(${APP_NAME} PRIVATE ${AXIS_ROOT_PATH}/../yylib/src)
+include_directories(${AXIS_ROOT_PATH}/../boost/boost)
+include_directories(${AXIS_ROOT_PATH}/../yylib/src)
 
 ###############################################################################################
 ###############################################################################################
