@@ -57,4 +57,7 @@ cmake 3.22.1
 # 已知问题
 
 当前 axis 的项目 死活会要求 安装 30.0.2 build tools 并且找不到地方修改
+
+注意 ignore 自动创建的  SharedLoader.java  和  run.bat
+
 	
