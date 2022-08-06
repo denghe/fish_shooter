@@ -94,6 +94,17 @@ set(GAME_HEADER ${RUNTIME_SRC_ROOT}/Classes/AppDelegate.h)
 set(GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/AppDelegate.cpp)
 # sources need to compile info, include dirs and source files
 
+###############################################################################################
+###############################################################################################
+###############################################################################################
+
+target_include_directories(${APP_NAME} PRIVATE ${AXIS_ROOT_PATH}/../boost/boost)
+target_include_directories(${APP_NAME} PRIVATE ${AXIS_ROOT_PATH}/../yylib/src)
+
+###############################################################################################
+###############################################################################################
+###############################################################################################
+
 if(ANDROID)
     # the APP_NAME should match on AndroidManifest.xml
     list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/proj.android/app/jni/hellolua/main.cpp)
